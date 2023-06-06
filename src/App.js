@@ -1,11 +1,19 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
+//import swapi;;
 
 export default function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  useEffect(() => {
+    fetch('https://swapi.dev/api/people/1')
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+    }
+  );
+  
   const submit = (e) => {
     e.preventDefault();
     const data = {
