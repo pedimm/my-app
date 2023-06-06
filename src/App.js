@@ -7,13 +7,16 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  useEffect(() => {
-    fetch('https://swapi.dev/api/people/1')
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-    }
-  );
-  
+  // useEffect(() => {
+  //   fetch('https://swapi.dev/api/people/1')
+  //     .then((response) => response.json())
+  //     .then((data) => console.log(data));
+  // });
+
+  if (email === "admin@gmail.com" && password === "admin") {
+
+  }
+
   const submit = (e) => {
     e.preventDefault();
     const data = {
@@ -21,6 +24,12 @@ export default function App() {
       password,
     };
     console.log(data);
+    e.target.reset();
+    if (email === "admin@gmail.com" && password === "admin") {
+      fetch('https://swapi.dev/api/people/1')
+      .then((response) => response.json())
+      .then((data) => document.querySelector("p").insertAdjacentHTML("afterbegin", data.name));
+    }
   };
 
   return (
@@ -46,7 +55,7 @@ export default function App() {
 
         <button id="loginButton">Logar</button>
       </form>
+      <p></p>
     </div>
   );
 }
-
