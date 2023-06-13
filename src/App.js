@@ -1,6 +1,8 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
+// import { Dialog } from '@headlessui/react'
+// import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 export default function App() {
   const [email, setEmail] = useState('');
@@ -36,7 +38,7 @@ export default function App() {
           onChange={(e) => setEmail(e.target.value)}
         ></input>
 
-        <label class="block text-sm font-medium leading-6 text-gray-900">Senha</label>
+        <label>Senha</label>
         <input
           type="password"
           id="password"
@@ -47,7 +49,8 @@ export default function App() {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
 
-        <button id="loginButton">Logar</button>
+        <button id="loginButton"
+        className="-m-2.5 rounded-md p-2.5 text-gray-700">Logar</button>
       </form>
       <p></p>
     </div>
